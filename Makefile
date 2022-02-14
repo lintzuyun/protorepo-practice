@@ -1,6 +1,6 @@
-OUT = ./protorepo-user-go-practice
+OUT = ./protorepo-${PROJECT}-go-practice
 PACKAGE_PREFIX = github.com/lintzuyun
-MODULE = ${PACKAGE_PREFIX}/protorepo-user-go-practice
+MODULE = ${PACKAGE_PREFIX}/protorepo-${PROJECT}-go-practice
 
 .PHONY: install-proto build user
 
@@ -12,7 +12,7 @@ user: PROJECT = user
 user: VERSION = v1
 user:
 	rm -rf ${OUT}
-	git clone git@github.com:lintzuyun/protorepo-user-go-practice.git ${OUT}
+	git clone git@github.com:lintzuyun/protorepo-${PROJECT}-go-practice.git ${OUT}
 	protoc --go_out=${OUT}/${VERSION} --go_opt=module=${MODULE}/${VERSION} --go-grpc_out=${OUT}/${VERSION} --go-grpc_opt=module=${MODULE}/${VERSION} ${PROJECT}/${VERSION}/${PROJECT}.proto
 
 build: install-proto user
