@@ -42,12 +42,10 @@ message Error {
 
 message UserResponse {
     User user =1;
-    repeated Error err =2; 
 }
 
 message DeleteUserResponse {
     string id =1;
-    repeated Error err =2; 
 }
 
 message DeleteUserByIdRequest {
